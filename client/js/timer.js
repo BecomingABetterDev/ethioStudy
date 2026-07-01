@@ -30,7 +30,7 @@ const TimerModule = (() => {
   const show = (id) => $(id) && $(id).classList.remove("hidden");
   const hide = (id) => $(id) && $(id).classList.add("hidden");
   const notesInput = document.getElementById("sessionNotes");
-notesInput.disabled
+  notesInput.disabled;
   /* ─── Init ───────────────────────────────────────────────────────────────── */
   function init() {
     requestNotificationPermission();
@@ -171,11 +171,6 @@ notesInput.disabled
   }
 
   function handleStart() {
-    // Enable input field only when the active countdown begins
-    document.getElementById("sessionNotes").disabled = false;
-    document.getElementById("sessionNotes").placeholder =
-      "Scribble thoughts, obstacles, or milestones during this session...";
-
     if (_isPaused) {
       // Resume
       _isRunning = true;
@@ -207,7 +202,10 @@ notesInput.disabled
     updateDisplay();
     setStatus("Focusing…");
     setButtonState("running");
-
+    // Enable input field only when the active countdown begins
+    document.getElementById("sessionNotes").disabled = false;
+    document.getElementById("sessionNotes").placeholder =
+      "Scribble thoughts, obstacles, or milestones during this session...";
     const ring = $("timerRingProgress");
     if (ring) ring.classList.remove("paused", "complete");
     saveTimerRunningState();
