@@ -1,28 +1,32 @@
 const mongoose = require("mongoose");
 
 const connectDB = async() => {
-    // 1. CLEAR LOG TO PROVE THE NEW CODE IS RUNNING
-    console.log("🛰️  ATTEMPTING PRODUCTION DATABASE CONNECTION ENGINE...");
-
-    // 2. HARDCODED BYPASS (Eliminates Render dashboard environment bugs completely)
-    const productionURI =
-        "mongodb+srv://eyobdesalegn37:1FhVX5MFZb4DASLL@ethiostudy.oa6toei.mongodb.net/ethiostudy?retryWrites=true&w=majority";
-
     try {
-        const conn = await mongoose.connect(productionURI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 5000,
-            socketTimeoutMS: 45000,
-        });
+        const conn = await mongoose.connect(
+            process.env.MONGODB_URI || "mongodb://localhost:27017/ethiostudy", {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                serverSelectionTimeoutMS: 5000,
+                socketTimeoutMS: 45000,
+            }
+        );
 
-        console.log(`✅ MongoDB connected successfully: ${conn.connection.host}`);
+        console.log(`✅ MongoDB connected: ${conn.connection.host}`);
 
         mongoose.connection.on("disconnected", () => {
-            console.warn("⚠️  MongoDB disconnected. Reconnecting...");
+            console.warn("⚠️  MongoDB disconnected. Attempting to reconnect...");
+        });
+
+        mongoose.connection.on("reconnected", () => {
+            console.log("✅ MongoDB reconnected");
+        });
+
+        mongoose.connection.on("error", (err) => {
+            console.error("MongoDB connection error:", err.message);
         });
     } catch (error) {
         console.error(`❌ MongoDB connection failed: ${error.message}`);
+        console.error("Make sure MongoDB is running: mongod --dbpath /data/db");
         process.exit(1);
     }
 };
