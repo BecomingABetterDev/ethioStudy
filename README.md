@@ -71,7 +71,7 @@ ethiostudy/
 │ └── styles.css # Componentized application design tokens
 └── js/
 ├── api.js # HTTP client wrapper and network exception layer
-├── db.js # Local IndexedDB namespace layer (`TaskStore`, `SyncQueue`)
+├── db.js # Local IndexedDB namespace layer (TaskStore, SyncQueue)
 ├── auth.js # Client-side session tokens and route verification guards
 ├── offline.js # Real-time connection tracking and notification components
 ├── sync.js # Asynchronous synchronization queue processor
