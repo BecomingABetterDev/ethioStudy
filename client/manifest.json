@@ -1,0 +1,37 @@
+{
+    "name": "EthioStudy",
+    "short_name": "EthioStudy",
+    "description": "Offline-first study and task tracker for Ethiopian students",
+    "start_url": "/dashboard.html",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#0f1117",
+    "theme_color": "#0d9488",
+    "lang": "en",
+    "categories": ["education", "productivity"],
+    "icons": [{
+            "src": "/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [],
+    "shortcuts": [{
+            "name": "New Task",
+            "url": "/dashboard.html#tasks",
+            "description": "Create a new task"
+        },
+        {
+            "name": "Start Timer",
+            "url": "/dashboard.html#timer",
+            "description": "Start a Pomodoro study session"
+        }
+    ]
+}

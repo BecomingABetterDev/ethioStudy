@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EthioStudy — The offline-first study and task tracker built for Ethiopian students. Manage tasks, run Pomodoro sessions, and track your progress anywhere." />
+  <meta name="theme-color" content="#0D9488" />
+  <title>EthioStudy — Study Smarter, Anywhere</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="landing-body">
+
+  <!-- ─── Navigation ─────────────────────────────────────────────────────── -->
+  <header class="nav-header" id="navHeader">
+    <nav class="nav-container">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-icon">E</span>
+        <span class="nav-logo-text">EthioStudy</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#offline" class="nav-link">Offline Mode</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-ghost">Sign In</a>
+        <a href="/register.html" class="btn btn-primary">Get Started Free</a>
+      </div>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ─── Mobile Nav ──────────────────────────────────────────────────────── -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#features" class="mobile-nav-link">Features</a>
+    <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+    <a href="#offline" class="mobile-nav-link">Offline Mode</a>
+    <a href="/login.html" class="mobile-nav-link">Sign In</a>
+    <a href="/register.html" class="btn btn-primary" style="display:inline-block;margin-top:8px;">Get Started Free</a>
+  </div>
+
+  <main>
+    <!-- ─── Hero ─────────────────────────────────────────────────────────── -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Offline-First Architecture
+      </div>
+      <h1 class="hero-title">
+        Study smarter,<br />
+        <span class="hero-title-accent">anywhere you are.</span>
+      </h1>
+      <p class="hero-subtitle">
+        EthioStudy helps you manage tasks, run focused Pomodoro sessions, and track your academic
+        progress — with or without an internet connection.
+      </p>
+      <div class="hero-actions">
+        <a href="/register.html" class="btn btn-primary btn-lg">Start for Free</a>
+        <a href="#how-it-works" class="btn btn-outline btn-lg">See How It Works</a>
+      </div>
+
+      <!-- Dashboard Preview -->
+      <div class="hero-preview">
+        <div class="hero-preview-bar">
+          <div class="hero-preview-dot" style="background:#ef4444"></div>
+          <div class="hero-preview-dot" style="background:#f59e0b"></div>
+          <div class="hero-preview-dot" style="background:#22c55e"></div>
+          <span style="margin-left:auto;font-size:11px;color:#94a3b8;">dashboard.html</span>
+        </div>
+        <div class="hero-preview-content">
+          <div class="hero-preview-sidebar">
+            <div class="preview-logo">ES</div>
+            <div class="preview-nav-item preview-nav-active">Dashboard</div>
+            <div class="preview-nav-item">Tasks</div>
+            <div class="preview-nav-item">Timer</div>
+            <div class="preview-nav-item">Progress</div>
+          </div>
+          <div class="hero-preview-main">
+            <div class="preview-stats-row">
+              <div class="preview-stat-card">
+                <div class="preview-stat-value">4.5h</div>
+                <div class="preview-stat-label">This Week</div>
+              </div>
+              <div class="preview-stat-card">
+                <div class="preview-stat-value">12</div>
+                <div class="preview-stat-label">Tasks Done</div>
+              </div>
+              <div class="preview-stat-card">
+                <div class="preview-stat-value">7</div>
+                <div class="preview-stat-label">Day Streak</div>
+              </div>
+            </div>
+            <div class="preview-tasks">
+              <div class="preview-task preview-task-progress">
+                <div class="preview-task-dot" style="background:#f59e0b"></div>
+                <div class="preview-task-info">
+                  <div class="preview-task-title">Advanced Mathematics</div>
+                  <div class="preview-task-sub">In Progress</div>
+                </div>
+              </div>
+              <div class="preview-task">
+                <div class="preview-task-dot" style="background:#ef4444"></div>
+                <div class="preview-task-info">
+                  <div class="preview-task-title">Physics Lab Report</div>
+                  <div class="preview-task-sub">Due Today</div>
+                </div>
+              </div>
+              <div class="preview-task">
+                <div class="preview-task-dot" style="background:#10b981"></div>
+                <div class="preview-task-info">
+                  <div class="preview-task-title">English Essay</div>
+                  <div class="preview-task-sub">Completed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Social Proof ─────────────────────────────────────────────────── -->
+    <section class="social-proof-section">
+      <div class="social-proof-container">
+        <p class="social-proof-text">Trusted by students across Ethiopia</p>
+        <div class="social-proof-stats">
+          <div class="proof-stat">
+            <span class="proof-stat-value">2,400+</span>
+            <span class="proof-stat-label">Active Students</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-stat">
+            <span class="proof-stat-value">18,000+</span>
+            <span class="proof-stat-label">Sessions Completed</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-stat">
+            <span class="proof-stat-value">94,000+</span>
+            <span class="proof-stat-label">Tasks Managed</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-stat">
+            <span class="proof-stat-value">100%</span>
+            <span class="proof-stat-label">Offline Capable</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Features ──────────────────────────────────────────────────────── -->
+    <section class="features-section" id="features">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Features</span>
+          <h2 class="section-title">Everything you need to study effectively</h2>
+          <p class="section-subtitle">
+            Built with the realities of low-connectivity environments in mind, every feature works offline.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card feature-card-primary">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+            </div>
+            <h3 class="feature-title">Task Management</h3>
+            <p class="feature-desc">Create, organize, and track tasks by subject and due date. Update status from Pending to In Progress to Completed with one click.</p>
+            <ul class="feature-list">
+              <li>Subject-based organization</li>
+              <li>Due date tracking</li>
+              <li>Status workflow</li>
+              <li>Soft archive</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="feature-title">Pomodoro Timer</h3>
+            <p class="feature-desc">25-minute focused study sessions linked to your tasks. Sessions are automatically saved and contribute to your study statistics.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon feature-icon-offline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16.5v-13a2 2 0 012-2h12a2 2 0 012 2v13M2 20h20M12 3v13" /></svg>
+            </div>
+            <h3 class="feature-title">Offline-First</h3>
+            <p class="feature-desc">All task operations work without internet. Data is saved locally using IndexedDB and automatically synced to the server when connection is restored.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+            </div>
+            <h3 class="feature-title">Progress Analytics</h3>
+            <p class="feature-desc">Track weekly study hours, daily streaks, and your most-studied subjects. Visual charts give you insight into your learning patterns.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            </div>
+            <h3 class="feature-title">Secure Auth</h3>
+            <p class="feature-desc">JWT-based authentication with bcrypt password hashing. Your data is private, scoped to your account, and never shared.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+            </div>
+            <h3 class="feature-title">Auto Sync</h3>
+            <p class="feature-desc">A smart sync queue processes all offline operations the moment your connection returns — no manual action needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Offline Deep Dive ─────────────────────────────────────────────── -->
+    <section class="offline-section" id="offline">
+      <div class="section-container">
+        <div class="offline-grid">
+          <div class="offline-text">
+            <span class="section-tag section-tag-dark">Offline Technology</span>
+            <h2 class="section-title">Built for Ethiopia's internet reality</h2>
+            <p class="section-subtitle">
+              We know connectivity is unreliable. EthioStudy was engineered from the ground up to be fully
+              functional without internet access — not as an afterthought, but as a core requirement.
+            </p>
+            <div class="offline-steps">
+              <div class="offline-step">
+                <div class="offline-step-num">1</div>
+                <div>
+                  <strong>Internet disconnects</strong>
+                  <p>The app detects the connection change instantly and notifies you.</p>
+                </div>
+              </div>
+              <div class="offline-step">
+                <div class="offline-step-num">2</div>
+                <div>
+                  <strong>Keep working normally</strong>
+                  <p>Create, update, and archive tasks. Data is saved in IndexedDB on-device.</p>
+                </div>
+              </div>
+              <div class="offline-step">
+                <div class="offline-step-num">3</div>
+                <div>
+                  <strong>Connection returns</strong>
+                  <p>The sync queue processes automatically. Your data reaches the server — no duplicates, no data loss.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="offline-visual">
+            <div class="offline-card">
+              <div class="offline-status offline-status-off">
+                <span class="status-dot status-dot-off"></span>
+                Offline Mode Active
+              </div>
+              <div class="offline-queue-title">Sync Queue</div>
+              <div class="offline-queue-items">
+                <div class="queue-item">
+                  <span class="queue-badge queue-badge-create">CREATE</span>
+                  <span>Advanced Calculus task</span>
+                </div>
+                <div class="queue-item">
+                  <span class="queue-badge queue-badge-update">UPDATE</span>
+                  <span>Physics Lab — In Progress</span>
+                </div>
+                <div class="queue-item">
+                  <span class="queue-badge queue-badge-archive">ARCHIVE</span>
+                  <span>Old Chemistry notes</span>
+                </div>
+              </div>
+              <div class="offline-syncing">
+                <div class="syncing-bar">
+                  <div class="syncing-progress"></div>
+                </div>
+                <span>Waiting for connection...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── How It Works ─────────────────────────────────��───────────────── -->
+    <section class="how-section" id="how-it-works">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Workflow</span>
+          <h2 class="section-title">From signup to study session in 3 steps</h2>
+        </div>
+        <div class="how-grid">
+          <div class="how-step">
+            <div class="how-step-number">01</div>
+            <h3 class="how-step-title">Create your account</h3>
+            <p class="how-step-desc">Register with your email and a secure password. No email verification required — start immediately.</p>
+          </div>
+          <div class="how-connector"></div>
+          <div class="how-step">
+            <div class="how-step-number">02</div>
+            <h3 class="how-step-title">Add your tasks</h3>
+            <p class="how-step-desc">Create tasks with a subject, optional due date, and status. Organize your entire academic workload in one place.</p>
+          </div>
+          <div class="how-connector"></div>
+          <div class="how-step">
+            <div class="how-step-number">03</div>
+            <h3 class="how-step-title">Start studying</h3>
+            <p class="how-step-desc">Select a task and start a 25-minute Pomodoro session. Sessions are saved automatically, building your study history.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Testimonials ──────────────────────────────────────────────────── -->
+    <section class="testimonials-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">Students</span>
+          <h2 class="section-title">What students are saying</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span>★★★★★</span>
+            </div>
+            <p class="testimonial-text">"I use EthioStudy every day for exam prep. The Pomodoro timer keeps me focused, and the offline mode is a lifesaver when the power goes out."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AT</div>
+              <div>
+                <div class="testimonial-name">Abebe Tadesse</div>
+                <div class="testimonial-role">2nd Year, Addis Ababa University</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span>★★★★★</span>
+            </div>
+            <p class="testimonial-text">"Finally a study app that actually works in Ethiopia. The sync feature is smart — I created tasks offline on the bus and they appeared on my laptop automatically."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SH</div>
+              <div>
+                <div class="testimonial-name">Sara Haile</div>
+                <div class="testimonial-role">Pre-Med Student, Hawassa University</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <span>★★★★★</span>
+            </div>
+            <p class="testimonial-text">"The progress dashboard motivates me. Seeing my study streak and hours per week makes me want to keep going. Clean design, no distractions."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">YB</div>
+              <div>
+                <div class="testimonial-name">Yonas Bekele</div>
+                <div class="testimonial-role">Engineering Student, Bahir Dar University</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ───────────────────────────────────────────────────────────── -->
+    <section class="cta-section">
+      <div class="cta-container">
+        <h2 class="cta-title">Ready to study smarter?</h2>
+        <p class="cta-subtitle">Join thousands of Ethiopian students managing their studies with EthioStudy. Free, offline-capable, and built for you.</p>
+        <div class="cta-actions">
+          <a href="/register.html" class="btn btn-white btn-lg">Create Free Account</a>
+          <a href="/login.html" class="btn btn-outline-white btn-lg">Sign In</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── Footer ───────────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="nav-logo-icon">E</span>
+          <span>EthioStudy</span>
+        </div>
+        <p class="footer-tagline">Empowering Ethiopian students to learn without limits.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#offline">Offline Mode</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Account</div>
+          <a href="/login.html">Sign In</a>
+          <a href="/register.html">Register</a>
+          <a href="/dashboard.html">Dashboard</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Tech Stack</div>
+          <span>Node.js + Express</span>
+          <span>MongoDB</span>
+          <span>Vanilla JS / PWA</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 EthioStudy. Built for Ethiopian students.</span>
+      <span>Offline-First &bull; Open Architecture &bull; JWT Secured</span>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    // Init landing page nav (scroll effect, hamburger, logged-in CTA redirect)
+    window.initLandingNav();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          document.getElementById('mobileNav')?.classList.remove('open');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
