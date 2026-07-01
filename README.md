@@ -46,10 +46,10 @@ ethiostudy/
 │   │   ├── Task.js            # Extensible task models integrating syncIds for entity deduplication
 │   │   └── Session.js         # Chronological study session schemas tracking reflection text logs
 │   ├── controllers/
-│   │   ├── authController.js  # Identity registration, authentication, and state tokens
-│   │   ├── taskController.js  # Task operations and bulk transactional synchronization handlers
-│   │   ├── sessionController.js # Session storage routers
-│   │   └── dashboardController.js # Aggregate metric tracking engines and study streak metrics
+│   │   ├── authController.js      # Identity registration, authentication, and state tokens
+│   │   ├── taskController.js      # Task operations and bulk transactional synchronization handlers
+│   │   ├── sessionController.js    # Session storage routers
+│   │   └── dashboardController.js      # Aggregate metric tracking engines and study streak metrics
 │   ├── routes/
 │   │   ├── auth.js            # Authentication endpoints
 │   │   ├── tasks.js           # Task management endpoints
