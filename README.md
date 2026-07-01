@@ -32,53 +32,51 @@ A production-grade, highly resilient full-stack web ecosystem engineered for stu
 
 
 ```
-
 ethiostudy/
-├── server.js # Monolith entry point & application bootstrap
-├── .env # Local runtime environment variables
-├── package.json # Manifest dependencies & automation scripts
+├── server.js                  # Monolith entry point & application bootstrap
+├── .env                       # Local runtime environment variables
+├── package.json               # Manifest dependencies & automation scripts
 │
-├── server/ # Core Server Architecture
-│ ├── config/
-│ │ ├── database.js # Mongoose cluster initialization pool
-│ │ └── jwt.js # Cryptographic token signing & token-validation modules
-│ ├── models/
-│ │ ├── User.js # User schemas featuring pre-save document password hashing
-│ │ ├── Task.js # Extensible task models integrating syncIds for entity deduplication
-│ │ └── Session.js # Chronological study session schemas tracking reflection text logs
-│ ├── controllers/
-│ │ ├── authController.js # Identity registration, authentication, and state tokens
-│ │ ├── taskController.js # Task operations and bulk transactional synchronization handlers
-│ │ ├── sessionController.js # Session storage routers
-│ │ └── dashboardController.js # Aggregate metric tracking engines and study streak metrics
-│ ├── routes/
-│ │ ├── auth.js # Authentication endpoints
-│ │ ├── tasks.js # Task management endpoints
-│ │ ├── sessions.js # Analytics session tracks
-│ │ └── dashboard.js # Global telemetry dashboard data streams
-│ └── middleware/
-│ ├── auth.js # In-flight token verification and identity projection
-│ └── errorHandler.js # Catch-all exception interceptor and payload sanitization
+├── server/                    # Core Server Architecture
+│   ├── config/
+│   │   ├── database.js        # Mongoose cluster initialization pool
+│   │   └── jwt.js             # Cryptographic token signing & token-validation modules
+│   ├── models/
+│   │   ├── User.js            # User schemas featuring pre-save document password hashing
+│   │   ├── Task.js            # Extensible task models integrating syncIds for entity deduplication
+│   │   └── Session.js         # Chronological study session schemas tracking reflection text logs
+│   ├── controllers/
+│   │   ├── authController.js  # Identity registration, authentication, and state tokens
+│   │   ├── taskController.js  # Task operations and bulk transactional synchronization handlers
+│   │   ├── sessionController.js # Session storage routers
+│   │   └── dashboardController.js # Aggregate metric tracking engines and study streak metrics
+│   ├── routes/
+│   │   ├── auth.js            # Authentication endpoints
+│   │   ├── tasks.js           # Task management endpoints
+│   │   ├── sessions.js        # Analytics session tracks
+│   │   └── dashboard.js       # Global telemetry dashboard data streams
+│   └── middleware/
+│       ├── auth.js            # In-flight token verification and identity projection
+│       └── errorHandler.js    # Catch-all exception interceptor and payload sanitization
 │
-└── client/ # Core Client Presentation Layer (PWA App Shell)
-├── index.html # Guest landing frame
-├── login.html # Identity ingestion portal
-├── register.html # Account provisioning frame
-├── dashboard.html # Workspace application core shell
-├── manifest.json # Web application installation parameters
-├── service-worker.js # Dynamic Cache-First and Network-First sync strategies
+└── client/                    # Core Client Presentation Layer (PWA App Shell)
+├── index.html             # Guest landing frame
+├── login.html             # Identity ingestion portal
+├── register.html          # Account provisioning frame
+├── dashboard.html         # Workspace application core shell
+├── manifest.json          # Web application installation parameters
+├── service-worker.js      # Dynamic Cache-First and Network-First sync strategies
 ├── css/
-│ └── styles.css # Componentized application design tokens
+│   └── styles.css         # Componentized application design tokens
 └── js/
-├── api.js # HTTP client wrapper and network exception layer
-├── db.js # Local IndexedDB namespace layer (TaskStore, SyncQueue)
-├── auth.js # Client-side session tokens and route verification guards
-├── offline.js # Real-time connection tracking and notification components
-├── sync.js # Asynchronous synchronization queue processor
-├── tasks.js # Optimistic task task-management and client rendering logic
-├── timer.js # Pomodoro runtime controller with active SVG countdown rings
-└── dashboard.js # App orchestration and contextual interface navigation
-
+├── api.js             # HTTP client wrapper and network exception layer
+├── db.js              # Local IndexedDB namespace layer (TaskStore, SyncQueue)
+├── auth.js            # Client-side session tokens and route verification guards
+├── offline.js         # Real-time connection tracking and notification components
+├── sync.js            # Asynchronous synchronization queue processor
+├── tasks.js           # Optimistic task task-management and client rendering logic
+├── timer.js           # Pomodoro runtime controller with active SVG countdown rings
+└── dashboard.js       # App orchestration and contextual interface navigation
 ```
 
 ---
