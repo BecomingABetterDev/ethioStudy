@@ -505,7 +505,7 @@ svg {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(15, 17, 23, 0.85);
+  background: rgba(15, 17, 23, 0.45);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -1012,7 +1012,7 @@ svg {
   font-size: var(--fs-sm);
   color: var(--color-text-secondary);
   line-height: 1.6;
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-8);
 }
 
 .feature-list {
@@ -1024,9 +1024,10 @@ svg {
 .feature-list li {
   display: flex;
   align-items: center;
-  gap: var(--sp-2);
-  font-size: var(--fs-sm);
-  color: var(--color-text-secondary);
+  gap: var(--sp-4);
+  font-size: var(--fs-base);
+  font-weight: bold;
+  color: var(--color-text-green);
 }
 
 .feature-list li::before {
