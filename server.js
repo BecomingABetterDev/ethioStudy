@@ -20,75 +20,85 @@ connectDB();
 const app = express();
 
 // ─── Security Middleware ────────────────────────────────────────────────────
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: {
-//       directives: {
-//         defaultSrc: ["'self'"],
-//         scriptSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-//         styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com', 'https://fonts.gstatic.com'],
-//         fontSrc: ["'self'", 'https://fonts.gstatic.com'],
-//         connectSrc: ["'self'"],
-//         workerSrc: ["'self'"],
-//         imgSrc: ["'self'", 'data:'],
-//       },
-//     },
-//   })
-// );
-
 app.use(
-    helmet({
-        contentSecurityPolicy: {
-            directives: {
-                defaultSrc: ["'self'"],
-                scriptSrc: [
-                    "'self'",
-                    "'unsafe-inline'",
-                    "https://fonts.googleapis.com",
-                ],
-                styleSrc: [
-                    "'self'",
-                    "'unsafe-inline'",
-                    "https://fonts.googleapis.com",
-                    "https://fonts.gstatic.com",
-                ],
-                fontSrc: ["'self'", "https://fonts.gstatic.com"],
-                connectSrc: [
-                    "'self'",
-                    "https://fonts.googleapis.com",
-                    "https://fonts.gstatic.com",
-                ],
-                workerSrc: ["'self'"],
-                imgSrc: ["'self'", "data:", "blob:"],
-                manifestSrc: ["'self'"], // Allows the PWA manifest.json file to load securely
-            },
-        },
-    })
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fonts.googleapis.com",
+        ],
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+        ],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        connectSrc: [
+          "'self'",
+          "https://fonts.googleapis.com",
+          "https://fonts.gstatic.com",
+        ],
+        workerSrc: ["'self'"],
+        imgSrc: ["'self'", "data:", "blob:"],
+        manifestSrc: ["'self'"], // Allows the PWA manifest.json file to load securely
+      },
+    },
+  })
 );
 
-app.use(cors());
+// ─── CORS Configuration ─────────────────────────────────────────────
+const allowedOrigins = [
+  "https://ethiostudy.onrender.com", // Your production backend/frontend domain
+  "http://localhost:5000",
+  "http://localhost:3000", // Alternative local development port
+  "https://eyob-dportfolio.vercel.app",
+];
 
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, Postman, or server-to-server curl requests)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(
+          new Error("Blocked by security: Request origin not allowed by CORS")
+        );
+      }
+    },
+    credentials: true, // Allows HTTP-only cookies or Authorization headers to pass securely if needed
+    optionsSuccessStatus: 200, // Solves potential legacy browser caching bugs (IE11)
+  })
+);
 // ─── Rate Limiting ──────────────────────────────────────────────────────────
 const authLimiter = rateLimit({
-    windowMs: 60 * 60 * 1000, // 1 hour
-    max: 20,
-    message: {
-        success: false,
-        message: "Too many authentication attempts from this IP, please try again after an hour.",
-    },
-    standardHeaders: true,
-    legacyHeaders: false,
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 20,
+  message: {
+    success: false,
+    message:
+      "Too many authentication attempts from this IP, please try again after an hour.",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
 const apiLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100,
-    message: {
-        success: false,
-        message: "Too many requests from this IP, please try again after 15 minutes.",
-    },
-    standardHeaders: true,
-    legacyHeaders: false,
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100,
+  message: {
+    success: false,
+    message:
+      "Too many requests from this IP, please try again after 15 minutes.",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
 // ─── General Middleware ─────────────────────────────────────────────────────
@@ -107,34 +117,34 @@ app.use("/api/dashboard", apiLimiter, dashboardRoutes);
 
 // ─── Health Check ───────────────────────────────────────────────────────────
 app.get("/api/health", (req, res) => {
-    res.json({
-        success: true,
-        message: "EthioStudy API is running",
-        environment: process.env.NODE_ENV || "development",
-        timestamp: new Date().toISOString(),
-    });
+  res.json({
+    success: true,
+    message: "EthioStudy API is running",
+    environment: process.env.NODE_ENV || "development",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // ─── SPA Fallback ───────────────────────────────────────────────────────────
 // Serve dashboard.html for protected routes
 app.get("/dashboard", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "dashboard.html"));
+  res.sendFile(path.join(__dirname, "client", "dashboard.html"));
 });
 app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "login.html"));
+  res.sendFile(path.join(__dirname, "client", "login.html"));
 });
 app.get("/register", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "register.html"));
+  res.sendFile(path.join(__dirname, "client", "register.html"));
 });
 
 // ─── 404 Handler ────────────────────────────────────────────────────────────
 app.use((req, res) => {
-    if (req.path.startsWith("/api/")) {
-        return res
-            .status(404)
-            .json({ success: false, message: "API endpoint not found" });
-    }
-    res.sendFile(path.join(__dirname, "client", "index.html"));
+  if (req.path.startsWith("/api/")) {
+    return res
+      .status(404)
+      .json({ success: false, message: "API endpoint not found" });
+  }
+  res.sendFile(path.join(__dirname, "client", "index.html"));
 });
 
 // ─── Global Error Handler ───────────────────────────────────────────────────
@@ -143,18 +153,18 @@ app.use(errorHandler);
 // ─── Start Server ────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
-    console.log(
-        `\n🚀 EthioStudy server running in ${
+  console.log(
+    `\n🚀 EthioStudy server running in ${
       process.env.NODE_ENV || "development"
     } mode`
-    );
-    console.log(`   Local: http://localhost:${PORT}\n`);
+  );
+  console.log(`   Local: http://localhost:${PORT}\n`);
 });
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (err) => {
-    console.error("Unhandled Promise Rejection:", err.message);
-    server.close(() => process.exit(1));
+  console.error("Unhandled Promise Rejection:", err.message);
+  server.close(() => process.exit(1));
 });
 
 module.exports = app;
